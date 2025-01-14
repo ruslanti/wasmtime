@@ -40,6 +40,10 @@ ort = { version = "2.0.0-rc.2", default-features = false, features = [
 ], optional = true }
 tch = { version = "0.17.0", default-features = false, optional = true}
 
+candle-nn = { version = "0.3", optional = true }
+candle-core = { version = "0.3", optional = true }
+candle-transformers = { version = "0.3", optional = true }
+
 [target.'cfg(windows)'.dependencies.windows]
 version = "0.52"
 features = [
@@ -72,6 +76,8 @@ onnx = ["dep:ort"]
 winml = ["dep:windows"]
 # PyTorch is available on all platforms; requires Libtorch to be installed
 pytorch = ["dep:tch"]
+
+candle = ["dep:candle-nn", "dep:candle-core", "dep:candle-transformers"]
 
 [[test]]
 name = "test-programs"
